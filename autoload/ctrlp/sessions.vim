@@ -1,5 +1,7 @@
 let s:n = exists('s:n') ? s:n : fnamemodify(expand('<sfile>', 1), ':t:r')
 
+let g:ctrlp_session_dir = exists('g:ctrlp_session_dir') ? g:ctrlp_session_dir : '.vimsessions'
+
 " Load guard
 if ( exists('g:loaded_ctrlp_'.s:n) && g:loaded_ctrlp_{s:n} )
       \ || v:version < 700 || &cp
@@ -17,14 +19,14 @@ call add(g:ctrlp_ext_vars, {
       \ })
 
 function! ctrlp#{s:n}#init()
-  return split(system('ls $HOME/.vimsessions'), '\n')
+  return split(system('ls $HOME/'.g:ctrlp_session_dir), '\n')
 endfunction
 
 function! ctrlp#{s:n}#accept(mode, str)
   " For this example, just exit ctrlp and run help
   call ctrlp#exit()
   wall
-  exe "source ~/.vimsessions/".a:str
+  exe "source ~/".g:ctrlp_session_dir."/".a:str
 endfunction
 
 
