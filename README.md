@@ -12,11 +12,11 @@ This simple extension for CtrlP enables the following:
 Settings
 --------
 
-*g:ctrlp_session_dir* - directory relative to user $HOME dir that will hold the session files. Default `.vimsessions`.
+`g:ctrlp_session_dir` - directory relative to user $HOME dir that will hold the session files. Default `.vimsessions`.
 
 Bugs/Limitations
 ----------------
 
-* works in Linux only (due to `system('ls')` usage)
+* works only on Linux (hardcoded `ls` usage, sorry Windoze)
 * expects all the files in the session directory to be session files not dirs
 * no docs
